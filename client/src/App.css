@@ -9,7 +9,7 @@ label {
   display: flex;
   flex-direction: column;
   letter-spacing: 0.05rem;
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: 400;
   color: #222;
 }
@@ -30,14 +30,14 @@ label {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.375rem;
   padding: 40px;
+}
 
-  label {
-    margin: 10px 0;
-  }
+.container label {
+  margin: 10px 0;
+}
 
-  .button {
-    margin-top: 10px;
-  }
+.container .button {
+  margin-top: 10px;
 }
 
 input {
@@ -58,26 +58,27 @@ input {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 400;
-  font-size: .9em;
-  &:hover {
-    cursor: pointer;
-  }
+  font-size: 0.9em;
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 .wallet {
   display: flex;
   flex-direction: column;
+}
 
-  .balance {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 400;
-    font-size: .9em;
-    display: inline-flex;
-    margin-top: 10px;
-    padding: 0.75rem;
-    background-color: #f4f6f8;
-  }
+.wallet .balance {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 0.9em;
+  display: inline-flex;
+  margin-top: 10px;
+  padding: 0.75rem;
+  background-color: #f4f6f8;
 }
 
 .transfer {
@@ -85,20 +86,18 @@ input {
   flex-direction: column;
 }
 
-
-.DigitalSignature{
+.DigitalSignature {
   max-width: 30%;
   display: flex;
   flex-direction: column;
 }
-
 
 /* Hide the scrollbar for all elements */
 ::-webkit-scrollbar {
   display: none;
 }
 
-.copybutton{
+.copybutton {
   background-color: #b8f1f0ef;
   color: #111;
   height: 20px;
@@ -106,18 +105,18 @@ input {
   border-radius: 2px;
   cursor: pointer;
 }
-.digitalSignBlock{
+
+.digitalSignBlock {
   align-items: center;
   gap: 10px;
 }
 
-.walletTable{
+.walletTable {
   background-color: #f4f6f8;
   letter-spacing: 1px;
   font-weight: 400;
-  font-size: .9em;
+  font-size: 0.9em;
 }
-
 
 td, th {
   border: 1px solid #dddddd;
