@@ -1,6 +1,6 @@
 import Wallet from "./Wallet";
 import Transfer from "./Transfer";
-import "./App.scss";
+import "./App.css";
 import { useEffect, useState } from "react";
 import DigitalSignature from "./DigitalSignature";
 import Balances from "./Balances";
