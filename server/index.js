@@ -1,12 +1,17 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const port = 3042;
+
 const recoverPublicKey = require("./scripts/recoverKey");
 
 app.use(cors());
 app.use(express.json());
+const dotenv = require("dotenv");
+dotenv.config({
+  path: "./.env",
+});
 
+const PORT = process.env.PORT;
 const balances = {
   babd100ec07cd0af8da41d4e02f560e6530ba2d4: 100,
   da59cdec94f54544ce6ae8f09c33c3c771136b11: 50,
@@ -74,8 +79,8 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
   });
 }
-app.listen(port, (Error) => {
-  console.log(`Application listening on PORT ${port}`);
+app.listen(PORT, (Error) => {
+  console.log(`Application listening on PORT ${PORT}`);
 });
 
 function setInitialBalance(address) {
