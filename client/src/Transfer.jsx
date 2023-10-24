@@ -1,24 +1,26 @@
 import { useState } from "react";
 import server from "./server";
 
-function Transfer({ address, setBalance }) {
-  const [sendAmount, setSendAmount] = useState("");
+function Transfer({ address, setAddress, setBalance, digitalSign, setDigitalSign, sendAmount, setSendAmount }) {
+  // const [sendAmount, setSendAmount] = useState("");
   const [recipient, setRecipient] = useState("");
 
   const setValue = (setter) => (evt) => setter(evt.target.value);
 
   async function transfer(evt) {
     evt.preventDefault();
-
+    // console.log(digitalSign, recipient, sendAmount)
     try {
       const {
-        data: { balance },
+        data: { balance, sender },
       } = await server.post(`send`, {
-        sender: address,
+        senderSignature: digitalSign,
         amount: parseInt(sendAmount),
         recipient,
       });
       setBalance(balance);
+      console.log(sender)
+      setAddress(sender);
     } catch (ex) {
       alert(ex.response.data.message);
     }
@@ -29,9 +31,21 @@ function Transfer({ address, setBalance }) {
       <h1>Send Transaction</h1>
 
       <label>
+        Digital Signature
+        <input
+          placeholder="0xf123..."
+          defaultValue={digitalSign}
+          value={digitalSign}
+          onChange={setValue(setDigitalSign)}
+        ></input>
+      </label>
+
+
+      <label>
         Send Amount
         <input
-          placeholder="1, 2, 3..."
+          placeholder="ETH"
+          defaultValue={sendAmount}
           value={sendAmount}
           onChange={setValue(setSendAmount)}
         ></input>
